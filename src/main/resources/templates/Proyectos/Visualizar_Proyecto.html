@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar proyectos</title>
+    <div th:replace="Menu.html"></div>
+        <div class="contenedor"> <!--Div general del contenido-->
+            <table class="tabla"><!--Tabla de costos de proyectos-->
+                <thead class="cabecera"> 
+                    <tr>
+                        <th class="titulo-proyecto" colspan="7" th:text="${proyecto.nombre}"></th>
+                    </tr>
+                </thead>
+                <tbody> <!--Cuerpo de la tabla-->
+                    <tr>
+                        <td class="subtitulo" colspan="7"><strong>PRESUPUESTO DE OBRA</strong></td>
+                    </tr>
+                    <tr> <!--Filas-->
+                        <td><strong>ITEMS</strong></td> <!--Columnas-->
+                        <td><strong>DESCRIPCIÓN ACTIVIDADES</strong></td>
+                        <td><strong>UND</strong></td>
+                        <td><strong>CANT</strong></td>
+                        <td><strong>VR. UNIT</strong></td>
+                        <td><strong>VR. PARCIAL</strong></td>
+                        <td><strong>VR. CAPITULO</strong></td>
+                    </tr>
+                </tbody>
+                <tbody th:utext="${htmlContent}"></tbody>
+            </table>
+            <a class="boton-subproyecto" th:href="@{'/Proyectos/' + ${proyecto.id} + '/Visualizar/Generar_PDF'}">DESCARGAR</a>
+        </div>
+        
+    </div>
+    
+   <script th:src="@{/js/script.js}"></script>
+</body>
+
+</html>
